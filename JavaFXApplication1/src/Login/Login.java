@@ -12,6 +12,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -20,6 +24,14 @@ public class Login extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+//        primaryStage.setTitle("JavaFX Welcome");
+//        primaryastage.show();
+
+        
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+        
+        Scene scene = new Scene(root, 300, 250);
         
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -28,7 +40,7 @@ public class Login extends Application {
         grid.setPadding(new Insets(25,25,25,25));
         
         Text scenetitle = new Text("Welcome");
-        scenetitle.setId("welcome-text");
+        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
         
         Label userName= new Label("User Name:");
@@ -55,20 +67,14 @@ public class Login extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                actiontarget.setId("actiontarget");
+                actiontarget.setFill(Color.FIREBRICK);
                 actiontarget.setText("Sign in button pressed");
                  
             }
         });
         
-        Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
-        scene.getStylesheets().add(Login.class.getResource("Login.css").toExternalForm());
         primaryStage.show();
-    }
-    
-    public static void main(String[] args) {
-        launch(args);
     }
 }
 
