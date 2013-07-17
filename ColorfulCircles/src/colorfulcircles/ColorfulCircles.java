@@ -40,8 +40,8 @@ public class ColorfulCircles extends Application {
         primaryStage.setScene(scene);
         
         Group circles = new Group();
-        for (int i=0; i < 30; i++) {
-            Circle circle = new Circle(150, Color.web("black", 0.05));
+        for (int i=0; i < 40; i++) {
+            Circle circle = new Circle(100, Color.web("black", 0.05));
             circle.setStrokeType(StrokeType.OUTSIDE);
             circle.setStroke(Color.web("white", 0.16));
             circle.setStrokeWidth(4);

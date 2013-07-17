@@ -1,0 +1,14 @@
+
+.root { 
+    -fx-background-image: url("background2.jpg");
+}
+
+.button {
+    -fx-text-color: black;
+    -fx-font-weight: bold;
+    -fx-font: 30px "arial narrow";
+    -fx-background-color: linear-gradient(#f8bd55, #2A5058);
+    -fx-effect: innershadow( three-pass-box , #333333 , 6, 0.3 , 1 , 2 );
+
+}
+
