@@ -19,6 +19,7 @@ public class Calculator2 extends Application {
     double num1 = 0;
     double num2 = 0;
     String operation;
+
     @Override
     public void start(Stage primaryStage) {
         BorderPane border = new BorderPane();
@@ -67,117 +68,151 @@ public class Calculator2 extends Application {
         Button buttonDivide = createButton("/");
         grid.add(buttonDivide, 3, 4);
         Button buttonEquals = createButton("=");
-        grid.add(buttonEquals, 3, 5);
+        grid.add(buttonEquals, 5, 4);
+        Button buttonDecimal = createButton(".");
+        grid.add(buttonDecimal, 2, 4);
+        Button buttonSin = createButton("sin");
+        grid.add(buttonSin, 4, 1);
+        Button buttonCos = createButton("cos");
+        grid.add(buttonCos, 4, 2);
+        Button buttonTan = createButton("tan");
+        grid.add(buttonTan, 4, 3);
+        Button buttonArcsin = createButton("arcsin");
+        grid.add(buttonArcsin, 5, 1);
+        Button buttonArccos = createButton("arccos");
+        grid.add(buttonArccos, 5, 2);
+        Button buttonArctan = createButton("arctan");
+        grid.add(buttonArctan, 5, 3);
+        Button buttonExp = createButton("^");
+        grid.add(buttonExp, 4, 4);
 
 
-        button1.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "1";
-                textField.setText("1");
-            }
-        });
-        button2.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "2";
-                textField.setText("2");
-            }
-        });
-        button3.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "3";
-                textField.setText("3");
-            }
-        });
-        button4.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "4";
-                textField.setText("4");
-            }
-        });
-        button5.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "5";
-                textField.setText("5");
-            }
-        });
-        button6.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "6";
-                textField.setText("6");
-            }
-        });
-        button7.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "7";
-                textField.setText("7");
-            }
-        });
-        button8.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "8";
-                textField.setText("8");
-            }
-        });
-        button9.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "9";
-                textField.setText("8");
-            }
-        });
-        button0.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent ae) {
-                s += "0";
-                textField.setText("0");
-            }
-        });
         buttonAdd.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent ae) {
                 num1 = Double.valueOf(textField.getText());
                 textField.setText("");
-                operation ="+";            }
+                operation = "+";
+            }
         });
         buttonSubtract.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent ae) {
                 num1 = Double.valueOf(textField.getText());
                 textField.setText("");
-                operation ="-"; 
+                operation = "-";
             }
         });
         buttonMultiply.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent ae) {
                 num1 = Double.valueOf(textField.getText());
                 textField.setText("");
-                operation ="*"; 
+                operation = "*";
             }
         });
         buttonDivide.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent ae) {
                 num1 = Double.valueOf(textField.getText());
                 textField.setText("");
-                operation ="/"; 
+                operation = "/";
+            }
+        });
+        buttonSin.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "sin";
+            }
+        });
+        buttonCos.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "cos";
+            }
+        });
+        buttonTan.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "tan";
+            }
+        });
+        buttonArcsin.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "arcsin";
+            }
+        });
+        buttonArccos.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "arccos";
+            }
+        });
+        buttonArctan.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "arctan";
+            }
+        });
+        buttonExp.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                num1 = Double.valueOf(textField.getText());
+                textField.setText("");
+                operation = "exp";
             }
         });
         buttonEquals.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent ae) {
-                if (operation.equals("+")){
+                if (operation.equals("+")) {
                     num2 = Double.valueOf(textField.getText());
-                    textField.setText((num1+num2)+"");
-                    operation =""; 
+                    textField.setText((num1 + num2) + "");
+                    operation = "";
                 }
-                if (operation.equals("-")){
+                if (operation.equals("-")) {
                     num2 = Double.valueOf(textField.getText());
-                    textField.setText((num1-num2)+"");
-                    operation ="";
+                    textField.setText((num1 - num2) + "");
+                    operation = "";
                 }
-                if (operation.equals("*")){
+                if (operation.equals("*")) {
                     num2 = Double.valueOf(textField.getText());
-                    textField.setText((num1*num2)+"");
-                    operation ="";
+                    textField.setText((num1 * num2) + "");
+                    operation = "";
                 }
-                if (operation.equals("/")){
+                if (operation.equals("/")) {
                     num2 = Double.valueOf(textField.getText());
-                    textField.setText((num1/num2)+"");
-                    operation ="";
+                    textField.setText((num1 / num2) + "");
+                    operation = "";
+                }
+                if (operation.equals("sin")) {
+                    textField.setText(Math.sin(num1) + "");
+                    operation = "";
+                }
+                if (operation.equals("cos")) {
+                    textField.setText(Math.cos(num1) + "");
+                    operation = "";
+                }
+                if (operation.equals("tan")) {
+                    textField.setText(Math.tan(num1) + "");
+                    operation = "";
+                }
+                if (operation.equals("arcsin")) {
+                    textField.setText(Math.asin(num1) + "");
+                    operation = "";
+                }
+                if (operation.equals("arccos")) {
+                    textField.setText(Math.acos(num1) + "");
+                    operation = "";
+                }
+                if (operation.equals("arctan")) {
+                    textField.setText(Math.atan(num1) + "");
+                    operation = "";
+                }
+                if (operation.equals("exp")) {
+                    num2 = Double.valueOf(textField.getText());
+                    textField.setText(Math.pow(num1, num2) + "");
                 }
             }
         });
@@ -187,20 +222,18 @@ public class Calculator2 extends Application {
         return grid;
     }
 
-    private Button createButton(final String text) {
+    public Button createButton(final String text) {
         Button button = new Button(text);
         button.setEffect(new DropShadow());
         button.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
         button.setMaxWidth(Double.MAX_VALUE);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent ae) {
+                s += text;
+                textField.setText(text);
+
+            }
+        });
         return button;
     }
-    /*public HBox addHBox() {
-     HBox hbox = new HBox();
-     hbox.setPadding(new Insets(15, 12, 15, 12));
-     hbox.setSpacing(10);
-     TextField textField = new TextField();
-     hbox.getChildren().add(textField);
-            
-     return hbox;
-     }*/
 }
