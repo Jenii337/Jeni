@@ -1,6 +1,5 @@
 package calculator2;
 
-import java.util.Scanner;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -8,14 +7,22 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+
 
 
 public class Calculator2 extends Application { 
 
+    static TextField textField = new TextField();
+    static String s ="";
     @Override
     public void start(Stage primaryStage) {
+        BorderPane border = new BorderPane();
+    
+        border.setCenter(addGridPane());
         
         Scene scene;
         scene = new Scene(addGridPane());
@@ -23,189 +30,147 @@ public class Calculator2 extends Application {
         scene.getStylesheets().add(Calculator2.class.getResource("calculator2.css").toExternalForm());
         primaryStage.show();     }    
 
+    
     public GridPane addGridPane() {
         GridPane grid = new GridPane();
         grid.setHgap(15);
         grid.setVgap(15);
         grid.setPadding(new Insets(25, 25, 25, 25));        
-         
-        Button button1 = new Button("1");
-        grid.add(button1, 0, 0);
-        button1.setEffect(new DropShadow());
-        button1.setMaxWidth(Double.MAX_VALUE);
-        button1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("1");
-            }
-        });
-
-        Button button2 = new Button("2");
-        grid.add(button2, 1, 0);
-        button2.setEffect(new DropShadow());
-        button2.setMaxWidth(Double.MAX_VALUE);
-        button2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("2");
+                    
+        Button button1 = createButton("1");
+                grid.add(button1, 0, 1);
+        Button button2 = createButton("2");
+                grid.add(button2, 1, 1);
+        Button button3 = createButton("3");
+                grid.add(button3, 2, 1);
+        Button button4 = createButton("4");
+                grid.add(button4, 0, 2);
+        Button button5 = createButton("5");
+                grid.add(button5, 1, 2);
+        Button button6 = createButton("6");
+                grid.add(button6, 2, 2);
+        Button button7 = createButton("7");
+                grid.add(button7, 0, 3);
+        Button button8 = createButton("8");
+                grid.add(button8, 1, 3); 
+        Button button9 = createButton("9");
+                grid.add(button9, 2, 3);
+        Button button0 = createButton("0");
+                grid.add(button0, 1, 4);
+        Button buttonAdd = createButton("+");
+                grid.add(buttonAdd, 3, 1);
+        Button buttonSubtract = createButton("-");
+                grid.add(buttonSubtract, 3, 2);
+        Button buttonMultiply = createButton("*");
+                grid.add(buttonMultiply, 3, 3);
+        Button buttonDivide = createButton("/");
+                grid.add(buttonDivide, 3, 4);
+        Button buttonEquals = createButton("=");
+                grid.add(buttonEquals, 3, 5);
+                
+        
+        button1.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="1";
+                textField.setText(s);
             }
         });
         
-        Button button3 = new Button("3");
-        grid.add(button3, 2, 0);
-        button3.setEffect(new DropShadow());
-        button3.setMaxWidth(Double.MAX_VALUE);       
-        button3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("3");
+        button2.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="2";
+                textField.setText(s);
             }
         });
-
-        Button button4 = new Button("4");
-        grid.add(button4, 0, 1);
-        button4.setEffect(new DropShadow());
-        button4.setMaxWidth(Double.MAX_VALUE);
-        button4.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("4");
+            button3.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="3";
+                textField.setText(s);
+                
             }
         });
-
-
-        Button button5 = new Button("5");
-        grid.add(button5, 1, 1);
-        button5.setEffect(new DropShadow());
-        button5.setMaxWidth(Double.MAX_VALUE);
-        button5.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("5");
+            button4.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="4";
+                textField.setText(s);
             }
         });
-
-        Button button6 = new Button("6");
-        grid.add(button6, 2, 1);
-        button6.setEffect(new DropShadow());
-        button6.setMaxWidth(Double.MAX_VALUE);
-        button6.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("6");
+            button5.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="5";
+                textField.setText(s);
             }
         });
-
-        Button button7 = new Button("7");
-        grid.add(button7, 0, 2);
-        button7.setEffect(new DropShadow());
-        button7.setMaxWidth(Double.MAX_VALUE);
-        button7.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("7");
+            button6.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="6";
+                textField.setText(s);
             }
         });
-
-        Button button8 = new Button("8");
-        grid.add(button8, 1, 2); 
-        button8.setEffect(new DropShadow());
-        button8.setMaxWidth(Double.MAX_VALUE);
-        button8.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("8");
+            button7.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="7";
+                textField.setText(s);
             }
         });
-
-        Button button9 = new Button("9");
-        grid.add(button9, 2, 2);
-        button9.setEffect(new DropShadow());
-        button9.setMaxWidth(Double.MAX_VALUE);
-        button9.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("9");
+            button8.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="8";
+                textField.setText(s);
             }
         });
-
-        Button button0 = new Button("0");
-        grid.add(button0, 1, 3);
-        button0.setEffect(new DropShadow());
-        button0.setMaxWidth(Double.MAX_VALUE);
-        button0.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("0");
+            button9.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="9";
+                textField.setText(s);
             }
         });
-
-        Button buttonAdd = new Button("+");
-        grid.add(buttonAdd, 3, 0);
-        buttonAdd.setEffect(new DropShadow());
-        buttonAdd.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
-        buttonAdd.setMaxWidth(Double.MAX_VALUE);
-        buttonAdd.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("+");
+            button0.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="0";
+                textField.setText(s);
             }
         });
-
-        Button buttonSubtract = new Button("-");
-        grid.add(buttonSubtract, 3, 1);
-        buttonSubtract.setEffect(new DropShadow());
-        buttonSubtract.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
-        buttonSubtract.setMaxWidth(Double.MAX_VALUE);
-        buttonSubtract.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("-");
+            buttonAdd.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="+";
+                textField.setText(s);
+            }
+        }); 
+            buttonSubtract.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="-";
+                textField.setText(s);
             }
         });
-        
-        Button buttonMultiply = new Button("*");
-        grid.add(buttonMultiply, 3, 2);
-        buttonMultiply.setEffect(new DropShadow());
-        buttonMultiply.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
-        buttonMultiply.setMaxWidth(Double.MAX_VALUE);
-        buttonMultiply.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("*");
+            buttonMultiply.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="*";
+                textField.setText(s);
             }
         });
-        
-        Button buttonDivide = new Button("/");
-        grid.add(buttonDivide, 3, 3);
-        buttonDivide.setEffect(new DropShadow());
-        buttonDivide.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
-        buttonDivide.setMaxWidth(Double.MAX_VALUE);
-        buttonDivide.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("/");
+            buttonDivide.setOnAction(new EventHandler<ActionEvent>(){
+            public void handle(ActionEvent ae){
+                s+="/";
+                textField.setText(s);
             }
         });
-        
-        Button buttonEquals = new Button("=");
-        grid.add(buttonEquals, 3, 4);
-        buttonEquals.setEffect(new DropShadow());
-        buttonEquals.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
-        buttonEquals.setMaxWidth(Double.MAX_VALUE);
-        buttonEquals.setOnAction(new EventHandler<ActionEvent>() { 
-            @Override
-            public void handle(ActionEvent t) {
-                System.out.print("=");
-            }
-        });
-        
-        //grid.setGridLinesVisible(true);
-        return grid;       
+            grid.add(textField, 0, 0);
+            
+            return grid;
     }
     
-    public static void main(String[] args) {
+        private Button createButton(final String text)  {
+            Button button = new Button(text);
+            button.setEffect(new DropShadow());
+            button.setStyle("-fx-font: 20 arial; -fx-base: #c0fe56;");
+            button.setMaxWidth(Double.MAX_VALUE);
+            return button;
+        }
         
-    }
+
+
 }
+
+
     
