@@ -11,4 +11,10 @@
     -fx-effect: innershadow( three-pass-box , #333333 , 6, 0.3 , 1 , 2 );
 
 }
-
+.textfield_effect   {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #999999;
+    font-size: 24px;
+    color: #333333;
+}
